@@ -1,0 +1,339 @@
+class and objects:
+
+class : collection of similar type of objects
+blue print/format  /design
+
+
+car design --> class
+
+objects: real time entity 
+
+properties
+
+
+company  : class
+employees  : objects
+
+
+
+OOP features:
+class
+objects
+encapsulation
+inheritance
+polymorphism
+multithreading
+Abstraction
+
+__init__ : special methods -- dendar methods/Magic Methods
+
+Constructor:
+
+Class -- Obj create -- automatically call when object created
+
+
+db connection
+
+data transfer
+
+
+self : hold object reference
+
+
+
+Types of variables:
+
+1.instance variables :[ method]
+2.static variables :[class]
+3.local variables :[local]
+
+
+self.varname
+
+
+define :
+inside init method
+inside instance method
+
+static variable / class variable :
+
+static variable means class level variable i.e. only one copy will be created 
+and it will share among all objects
+
+scope :  within class and outside also
+
+access : always use classname.variablename
+
+local varibale:
+
+
+instance variable :  self : any where within the class
+static variable/class variable : class name : within class and outside class
+local variable : its local to method
+  
+--------------------------------------------------------------------------------
+method types:
+1.instance method
+2.class method
+3.static method
+
+
+instance method:
+
+instance methods ---> perform operation on object
+instance method --> self
+instance method always use instance variable
+
+
+self.methodname
+object .methodname
+
+
+class method
+
+class method is used to perform operation on class variable
+first parameter -> cls
+@classmethod  ---> decorator
+class AllCred:
+    username = 'root'
+    password = 'root'
+    port = 3306
+    url = 'localhost:3306'
+
+    @classmethod
+    def mysql_cred(cls):
+        cls.username = 'adminmysql'
+        cls.password = 'admin@123'
+        cls.port = 464
+        cls.url = '198.168.211.4'
+
+    @classmethod
+    def mssql_cred(cls):
+        cls.username = 'adminmsssql'
+        cls.password = 'admin@15436'
+        cls.port = 64646
+        cls.url = '198.168.211.4'
+
+print("*"*100)
+print("default cred")
+print(AllCred.username)
+print(AllCred.password)
+print(AllCred.port)
+print(AllCred.url)
+print("*"*100)
+AllCred.mysql_cred()
+print("mySQL")
+print(AllCred.username)
+print(AllCred.password)
+print(AllCred.port)
+print(AllCred.url)
+print("*"*100)
+print("MSSQL")
+AllCred.mssql_cred()
+print(AllCred.username)
+print(AllCred.password)
+print(AllCred.port)
+print(AllCred.url)
+
+
+static method:
+
+General utility method
+
+general --> static Methods
+
+@staticmethod
+
+class Student:
+    CollgeName = "VIT College"
+    def __init__(self,test1,test2,test3,sal):
+        self.id = test1
+        self.name = test2
+        self.city = test3
+        self.sal = sal
+
+    def show(self):
+        print("ID:",self.id)
+        print("Name:",self.name)
+        print("City:",self.city)
+        gross = self.bonus_cal()
+        print("original sal:",self.sal)
+        print("Gross Sal:",gross)
+        res = self.grad_cal(self.sal)
+        print("College Name:",Student.CollgeName)
+        print("Res:",res)
+
+    def bonus_cal(self):
+        bonus = (self.sal/100)*15
+        gs_sal = self.sal+bonus
+        return gs_sal
+
+    @staticmethod
+    def grad_cal(temp):
+        res = temp*2
+        return res
+
+
+    @classmethod
+    def change_variable(cls):
+        cls.CollgeName = 'MIT College'
+
+obj1 = Student(105,'Suresh','Pune',75000)
+obj1.show()
+
+
+=========================================================================================
+
+
+function
+    function
+	
+for 
+
+  for
+  
+if 
+
+   if
+   
+inner class
+===========================================================================
+
+
+
+without existing object of one class there is no chance of existing another class
+
+
+
+class A:
+    def m1(self):
+        print("wifi added")
+
+    def m2(self):
+        print("Bluetooth added")
+
+class B(A):
+    def m3(self):
+        print("lider added")
+
+    def m4(self):
+        print("LIFI added")
+
+
+class DBConnection:
+    def db_connection_mysql(self):
+        print("connection code for mysql")
+
+    def db_connection_termination(self):
+        print("connection termination")
+
+class DBConnection_MSSQL:
+    def db_connection_mssql(self):
+        print("connection code for mssql")
+
+    def data_transfer(self):
+        print("Data transfer method")
+
+class DBConnectionPostgre:
+    def DBconnectionpostgre(self):
+        print("db connection postre")
+
+class DataToDB(DBConnection,DBConnection_MSSQL,DBConnectionPostgre):
+    def DataintoDB(self):
+        print("Data store")
+
+
+obj = DataToDB()
+obj.db_connection_mysql()
+obj.db_connection_mssql()
+obj.data_transfer()
+obj.DBconnectionpostgre()
+obj.db_connection_termination()
+
+
+class A:
+    def m1(self):
+        print("in m1")
+
+class B(A):
+    def m2(self):
+        print("in m2")
+
+class C(B):
+    def m3(self):
+        print("in m3")
+
+class D(C):
+    def m4(self):
+        print("in m4")
+
+obj = D()
+obj.m4()
+obj.m3()
+obj.m2()
+obj.m1()
+
+
+class A:
+    def m1(self):
+        print("in m1")
+
+class B(A):
+    def m2(self):
+        print("in m2")
+
+class C(A):
+    def m3(self):
+        print("in m3")
+
+class D(B):
+    def m4(self):
+        print("in m4")
+
+class E(B):
+    def m5(self):
+        print("in m5")
+
+class F(C):
+    def m6(self):
+        print("in m6")
+class G(C):
+    def m7(self):
+        print("in m7")
+
+obj = D()
+obj.m2()
+obj.m4()
+obj.m1()
+
+
+class A:
+    def m1(self):
+        print("in m1")
+
+class B(A):
+    def m2(self):
+        print("in m2")
+
+class C(A):
+    def m3(self):
+        print("in m3")
+
+class D(B):
+    def m4(self):
+        print("in m4")
+
+class E(B):
+    def m5(self):
+        print("in m5")
+
+class F(C):
+    def m6(self):
+        print("in m6")
+class G(C):
+    def m7(self):
+        print("in m7")
+
+obj = D()
+
+print(D.mro())
